@@ -17,7 +17,6 @@ const AllChefs = () => {
       <div className="grid md:grid-cols-3 mx-10 gap-10">
         {chefsData.map((chef) => (
           <SingleChef key={chef.id} chef={chef}>
-            {" "}
           </SingleChef>
         ))}
       </div>

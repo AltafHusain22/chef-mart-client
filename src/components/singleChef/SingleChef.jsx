@@ -9,26 +9,28 @@ const SingleChef = ({ chef }) => {
   const { id, picture, name, bio, likes, num_recipes, years_experience } = chef;
   console.log(chef);
   return (
-    <div className="card md:w-full lg:w-full w-96 bg-base-100 shadow-xl ">
+    <div className="card w-full md:w-full bg-base-100 shadow-xl mx-auto md:mx-0">
       <figure>
-        <img src={picture} />
+        <img className="w-full" src={picture} alt={name} />
       </figure>
       <div className="text-center text-2xl font-bold">
         <h2 className="my-5">{name}</h2>
       </div>
       <div className="card-body">
-        <div className="flex gap-3 justify-between mb-10">
+        <div className="flex  md:flex-row gap-3 justify-between mb-10">
           <h2 className="card-title ">{years_experience}</h2>
           <div className="flex">
-            <FcLikePlaceholder className="text-2xl mr-2"></FcLikePlaceholder>{" "}
+            <FcLikePlaceholder className="text-2xl mr-2" />
             {likes}
           </div>
           <h2 className="card-title "> Recipes :{num_recipes}</h2>
         </div>
         <p>{bio}</p>
-        <div className="card-actions justify-center mt-5 w-96">
+        <div className="card-actions justify-center mt-5">
           <Link to={`/chefDetails/${id}`}>
-            <button className="btn btn-primary ">View Recipes</button>
+            <button className="btn btn-primary w-full md:w-auto">
+              View Recipes
+            </button>
           </Link>
         </div>
       </div>

@@ -13,7 +13,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-between flex-wrap bg-gray-200 p-6">
       <div className="flex items-center flex-shrink-0 text-slate-700 mr-6">
         <Link to="/">
-          <span className="font-semibold text-xl tracking-tight">
+          <span className="font-semibold text-2xl tracking-tight">
             Chefs-challenge
           </span>
         </Link>
@@ -34,13 +34,13 @@ const Navbar = () => {
         <div className="text-lg lg:flex-grow text-center">
           <Link
             to="/"
-            className="block mt-4 lg:inline-block lg:mt-0 text-slate-700 hover:text-slate-600 mr-4"
+            className="block font-bold mt-4 lg:inline-block lg:mt-0 text-slate-700 hover:text-slate-600 mr-4"
           >
             Home
           </Link>
           <Link
             to="/blog"
-            className="block mt-4 lg:inline-block lg:mt-0 text-slate-700 hover:text-slate-600 mr-4"
+            className="block font-bold mt-4 lg:inline-block lg:mt-0 text-slate-700 hover:text-slate-600 mr-4"
           >
             Blog
           </Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link
             to="/login"
-            className="inline-block  px-6 py-4  leading-none border rounded text-slate-100 font-bold hover:text-gray-900  mt-4 lg:mt-0 mr-4 bg-red-600  "
+            className="inline-block px-6 py-4  leading-none border rounded text-slate-100 font-bold hover:text-gray-900  mt-4 lg:mt-0 mr-4 bg-red-600  "
           >
             Login
           </Link>

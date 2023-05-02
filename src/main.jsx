@@ -11,6 +11,7 @@ import Main from './components/Layout/Main';
 import Home from './components/Home/Home';
 import Login from './pages/login/Login';
 import ChefDetails from './pages/chefDetails/ChefDetails';
+import Register from './pages/register/Register';
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element:<Login></Login>
+      },
+      {
+        path: 'register',
+        element:<Register></Register>
       },
       {
         path: 'blog',

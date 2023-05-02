@@ -9,7 +9,7 @@ const SingleChef = ({ chef }) => {
   const { id, picture, name, bio, likes, num_recipes, years_experience } = chef;
   console.log(chef);
   return (
-    <div className="card w-100 bg-base-100 shadow-xl ">
+    <div className="card md:w-full lg:w-full w-96 bg-base-100 shadow-xl ">
       <figure>
         <img src={picture} />
       </figure>

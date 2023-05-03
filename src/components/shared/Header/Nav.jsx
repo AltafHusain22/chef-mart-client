@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { useContext, useState } from "react";
 import { FaBars, FaUserCircle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthContextProvider";
-import imgofaltaf from "../../../assets/altaf.jpg";
+import "./Header.css";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { user, loggedOutUser, loading } = useContext(AuthContext);
-  
+  const location = useLocation();
 
   // logout
   const handleLogOut = () => {
@@ -54,20 +54,21 @@ const Navbar = () => {
         }`}
       >
         <div className="text-lg lg:flex-grow text-center">
-          <Link
+          <NavLink
+            activeClassName="active"
             to="/"
-            className="block font-bold mt-4 lg:inline-block lg:mt-0 text-slate-700 hover:text-slate-600 mr-4"
+            className="block font-bold mt-4 lg:inline-block lg:mt-0 text-slate-700  mr-4"
           >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
+            activeClassName="active"
             to="/blog"
-            className="block font-bold mt-4 lg:inline-block lg:mt-0 text-slate-700 hover:text-slate-600 mr-4"
+            className="block font-bold mt-4 lg:inline-block lg:mt-0 text-slate-700  mr-4"
           >
             Blog
-          </Link>
+          </NavLink>
         </div>
-
         {user ? (
           <div className="flex justify-items-center items-center">
             <button

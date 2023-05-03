@@ -18,8 +18,12 @@
   .dropdown:focus-within .dropdown-content {
 	display: block;
   }
+
+  .active{
+	color: blue;
+  }
   
-  @media (min-width: 640px)
+ 
 
 
 

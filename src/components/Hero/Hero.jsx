@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+import { Link } from "react-router-dom";
 import img1 from "../Hero/Assets/banner-1.png";
 import "./Hero.css";
 
@@ -16,9 +18,11 @@ const Hero = () => {
               need. It's your dream. Come find it. Test all your recipes from
               chefs-challenge.
             </p>
-            <button className="get-start-btn px-8 py-3 rounded-lg text-lg font-bold bg-red-600 hover:bg-red-700 text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">
-              See More
-            </button>
+            <Link to={'/blog'}>
+              <button className="get-start-btn px-8 py-3 rounded-lg text-lg font-bold bg-red-600 hover:bg-red-700 text-white focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2">
+                See Our Blogs
+              </button>
+            </Link>
           </div>
           <div className="hero-right flex justify-center mt-8 md:mt-0 md:w-3/5 lg:w-3/6">
             <img className="bg-image w-full md:w-auto" src={img1} alt="" />

@@ -1,9 +1,31 @@
-import { useState } from "react";
+/* eslint-disable no-unused-vars */
+import { useContext, useState } from "react";
 import { FaBars, FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthContextProvider";
+import imgofaltaf from "../../../assets/altaf.jpg";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const { user, loggedOutUser, loading } = useContext(AuthContext);
+  
+
+  // logout
+  const handleLogOut = () => {
+    if (loading) {
+      return (
+        <button type="button" className="bg-indigo-500 ..." disabled>
+          <svg
+            className="animate-spin h-5 w-5 mr-3 ..."
+            viewBox="0 0 24 24"
+          ></svg>
+          Loading...
+        </button>
+      );
+    }
+
+    loggedOutUser();
+  };
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -13,7 +35,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-between flex-wrap bg-gray-200 p-6">
       <div className="flex items-center flex-shrink-0 text-slate-700 mr-6">
         <Link to="/">
-          <span className="font-semibold text-2xl tracking-tight">
+          <span className="font-semibold text-2xl tracking-tight text-red-700">
             Chefs-challenge
           </span>
         </Link>
@@ -45,15 +67,40 @@ const Navbar = () => {
             Blog
           </Link>
         </div>
-        <div className="flex items-center">
-          <Link
-            to="/login"
-            className="inline-block px-6 py-4  leading-none border rounded text-slate-100 font-bold hover:text-gray-900  mt-4 lg:mt-0 mr-4 bg-red-600  "
-          >
-            Login
-          </Link>
-          <FaUserCircle className="text-slate-700 h-8 w-8" />
-        </div>
+
+        {user ? (
+          <div className="flex justify-items-center items-center">
+            <button
+              onClick={handleLogOut}
+              className="inline-block px-6 py-4  leading-none border rounded text-slate-100 font-bold hover:text-gray-900  mt-4 lg:mt-0 mr-4 bg-red-600  "
+            >
+              LogOut
+            </button>
+            <div className="avatar">
+              <div className="w-10 rounded-full ring ring-danger ring-offset-base-100 ring-offset-2">
+                <div>
+                  {user.photoURL && (
+                    <img
+                      className="tooltip hover:tooltip-visible"
+                      src={user.photoURL}
+                      alt={user.displayName}
+                      title={user.displayName}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="flex items-center">
+            <Link
+              to="/login"
+              className="inline-block px-6 py-4  leading-none border rounded text-slate-100 font-bold hover:text-gray-900  mt-4 lg:mt-0 mr-4 bg-red-600  "
+            >
+              Login
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );

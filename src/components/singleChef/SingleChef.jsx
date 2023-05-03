@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 const SingleChef = ({ chef }) => {
   const navigate = useNavigate();
   const { id, picture, name, bio, likes, num_recipes, years_experience } = chef;
-  console.log(chef);
+
   return (
     <div className="card w-full md:w-full bg-base-100 shadow-xl mx-auto md:mx-0">
       <figure>

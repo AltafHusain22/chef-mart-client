@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
@@ -12,6 +13,8 @@ import Home from './components/Home/Home';
 import Login from './pages/login/Login';
 import ChefDetails from './pages/chefDetails/ChefDetails';
 import Register from './pages/register/Register';
+import AuthContextProvider from './Context/AuthContextProvider';
+
 
 
 const router = createBrowserRouter([
@@ -49,7 +52,11 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <AuthContextProvider>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </AuthContextProvider>
+    
+ 
+    
+  
 )

@@ -13,7 +13,7 @@ const AllChefs = () => {
 
   return (
     <div>
-      <h2 className="hero-heading text-center my-7">Featured Chefs</h2>
+      <h2 className="hero-heading text-center my-7 text-3xl font-bold">Featured Chefs</h2>
       <div className="grid md:grid-cols-3 mx-10 gap-10">
         {chefsData.map((chef) => (
           <SingleChef key={chef.id} chef={chef}>

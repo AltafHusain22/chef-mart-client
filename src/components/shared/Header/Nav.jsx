@@ -55,14 +55,14 @@ const Navbar = () => {
       >
         <div className="text-lg lg:flex-grow text-center">
           <NavLink
-            activeClassName="active"
+            activeclassname="active"
             to="/"
             className="block font-bold mt-4 lg:inline-block lg:mt-0 text-slate-700  mr-4"
           >
             Home
           </NavLink>
           <NavLink
-            activeClassName="active"
+            activeclassname="active"
             to="/blog"
             className="block font-bold mt-4 lg:inline-block lg:mt-0 text-slate-700  mr-4"
           >

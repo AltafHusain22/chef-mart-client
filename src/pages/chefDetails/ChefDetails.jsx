@@ -3,6 +3,8 @@
 import React from "react";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { GrFavorite } from 'react-icons/gr';
+import Swal from 'sweetalert2'
 
 const ChefDetails = () => {
   const singlechefDetails = useLoaderData();
@@ -22,6 +24,19 @@ const ChefDetails = () => {
     cooking_method,
     ingredients,
   } = singlechefDetails;
+
+
+  const handleAddToFav =()=>{
+    Swal.fire(
+      'Good job!',
+      'Successfully Added to Favourite!',
+      'success'
+    )
+
+    console.log(' cliked')
+  }
+
+
   return (
     <div>
       <div className="bg-red-400 text-center py-20 mb-4">
@@ -79,17 +94,13 @@ const ChefDetails = () => {
       </div>
       {/* top section end  */}
 
-
       {/*  bottom cards*/}
       <div className="text-center">
         <h2 className="font-bold text-xl md:text-6xl mb-10">
-         
           Some of My Thai Recipes
         </h2>
       </div>
-      {
-        
-      }
+      {}
 
       {/* card -1  */}
       <div className="mb-20 mx-10 md:mx-20 md:mt-20">
@@ -112,10 +123,15 @@ const ChefDetails = () => {
               <h2 className="card-title">Ingredients :</h2>
               <ul>
                 {ingredients.map((ing) => (
-                  <li>{ing}</li>
+                  <li key={ing.id}>{ing}</li>
                 ))}
               </ul>
             </p>
+            <div className="flex justify-end">
+            <button onClick={handleAddToFav} className="btn btn-success bg-red-300 border-0 w-32">
+                  <GrFavorite className="text-2xl"></GrFavorite>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -145,6 +161,11 @@ const ChefDetails = () => {
                 ))}
               </ul>
             </p>
+            <div className="flex justify-end">
+              <button onClick={handleAddToFav} className="btn btn-success bg-red-300 border-0 w-32">
+                  <GrFavorite className="text-2xl"></GrFavorite>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -173,10 +194,14 @@ const ChefDetails = () => {
                 ))}
               </ul>
             </p>
+            <div className="flex justify-end">
+             <button onClick={handleAddToFav} className="btn btn-success bg-red-300 border-0 w-32">
+                  <GrFavorite className="text-2xl"></GrFavorite>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
   );
 };

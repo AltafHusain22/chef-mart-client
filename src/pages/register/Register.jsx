@@ -30,13 +30,18 @@ const Register = () => {
     const confirm = form.confirm.value;
     const photo = form.photo.value;
 
-    // if (password.length < 6) {
-    //   setError("Password should Be minimum 6 char");
-    //   return;
-    // } else if (password != confirm) {
-    //   setError("Uff,Password Did't Matched");
-    //   return;
-    // } else if (!/^(?=.*[a-z])/.test(password)) {
+
+    // form validation
+    if (password.length < 6) {
+      setError("Password should Be minimum 6 char");
+      return;
+    } else if (password != confirm) {
+      setError("Uff,Password Did't Matched");
+      return;
+    }
+
+    // optional validation
+    //  else if (!/^(?=.*[a-z])/.test(password)) {
     //   setError('Should be At least 1 lowercase letter')
     //   return
     // }else if (!/^(?=.*[A-Z])/.test(password)) {

@@ -18,7 +18,7 @@ const SingleChef = ({ chef }) => {
       </div>
       <div className="card-body">
         <div className="flex  md:flex-row gap-3 justify-between mb-10">
-          <h2 className="card-title ">{years_experience}</h2>
+          <h2 className="card-title ">{years_experience}Yr Exp..</h2>
           <div className="flex">
             <FcLikePlaceholder className="text-2xl mr-2" />
             {likes}
@@ -28,10 +28,11 @@ const SingleChef = ({ chef }) => {
         <p>{bio}</p>
         <div className="card-actions justify-center mt-5">
           <Link to={`/chefDetails/${id}`}>
-            <button className="btn btn-primary w-full md:w-auto">
+            <button className="btn btn-primary bg-red-500 border-0 w-full md:w-auto">
               View Recipes
             </button>
           </Link>
+          
         </div>
       </div>
     </div>

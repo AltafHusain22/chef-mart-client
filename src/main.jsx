@@ -14,6 +14,7 @@ import Login from './pages/login/Login';
 import ChefDetails from './pages/chefDetails/ChefDetails';
 import Register from './pages/register/Register';
 import AuthContextProvider from './Context/AuthContextProvider';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',

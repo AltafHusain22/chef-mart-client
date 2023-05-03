@@ -78,6 +78,8 @@ const ChefDetails = () => {
         </div>
       </div>
       {/* top section end  */}
+
+
       {/*  bottom cards*/}
       <div className="text-center">
         <h2 className="font-bold text-xl md:text-6xl mb-10">
@@ -85,6 +87,9 @@ const ChefDetails = () => {
           Some of My Thai Recipes
         </h2>
       </div>
+      {
+        
+      }
 
       {/* card -1  */}
       <div className="mb-20 mx-10 md:mx-20 md:mt-20">
@@ -171,6 +176,7 @@ const ChefDetails = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 import React from "react";
 import { useRef } from "react";
 import { BsFiletypePdf } from "react-icons/Bs";
@@ -12,7 +10,7 @@ const Blog = () => {
   const generatePDF = () => {
     html2canvas(contentRef.current).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdf = new jsPDF('p', 'cm', 'a4');
       pdf.addImage(imgData, "PNG", 0, 0);
       pdf.save('download.pdf', { encoding: 'UTF-8' });
     });
@@ -21,15 +19,15 @@ const Blog = () => {
   return (
     <>
       <div>
-        <div className="p-12 text-center">
-          <h1 className="py-12 text-4xl font-sans font-bold">
+        <div ref={contentRef} className="p-12 text-center">
+          <h1 ref={contentRef} className="py-12 text-4xl font-sans font-bold">
             Here are the 4 questions answer!
           </h1>
           <div
             tabIndex={0}
             className="mx-auto collapse collapse-arrow border border-base-300 bg-base-100 rounded-box sm:w-1/2 lg:w-2/3 my-8"
           >
-            <div className="collapse-title text-xl font-medium bg-red-500">
+            <div ref={contentRef} className="collapse-title text-xl font-medium bg-red-500 text-white">
               1.Tell us the differences between uncontrolled and controlled
               components?
             </div>
@@ -53,11 +51,11 @@ const Blog = () => {
             tabIndex={0}
             className="mx-auto collapse collapse-arrow border border-base-300 bg-base-100 rounded-box sm:w-1/2 lg:w-2/3 my-5"
           >
-            <div className="collapse-title text-xl font-medium bg-red-500">
+            <div ref={contentRef} className="collapse-title text-xl font-medium bg-red-500 text-white">
               2.How to validate React props using PropTypes?
             </div>
             <div className="collapse-content text-sm sm:text-base ">
-              <p className="py-5">
+              <p ref={contentRef} className="py-5">
                 React PropTypes is a type checking library that allows
                 developers to validate the props being passed to a React
                 component. It can help catch bugs early by checking that the
@@ -72,11 +70,11 @@ const Blog = () => {
             tabIndex={0}
             className="mx-auto collapse collapse-arrow border border-base-300 bg-base-100 rounded-box sm:w-1/2 lg:w-2/3 my-5"
           >
-            <div className="collapse-title text-xl font-medium bg-red-500">
+            <div ref={contentRef} className="collapse-title text-xl font-medium bg-red-500 text-white">
               3.Tell us the difference between nodejs and express js.?
             </div>
             <div className="collapse-content text-sm sm:text-base ">
-              <p className="py-5">
+              <p ref={contentRef} className="py-5">
                 <strong>Node.js:</strong> is a JavaScript runtime that allows
                 developers to run JavaScript code on the server-side. It uses
                 the V8 JavaScript engine from Google Chrome to execute
@@ -101,11 +99,11 @@ const Blog = () => {
             tabIndex={0}
             className="mx-auto collapse collapse-arrow border border-base-300 bg-base-100 rounded-box sm:w-1/2 lg:w-2/3 my-5"
           >
-            <div className="collapse-title text-xl font-medium bg-red-500">
+            <div ref={contentRef} className="collapse-title text-xl font-medium bg-red-500 text-white">
               4.What is a custom hook, and why will you create a custom hook??
             </div>
             <div className="collapse-content text-sm sm:text-base ">
-              <p className="py-5">
+              <p ref={contentRef} className="py-5">
                 <strong> Custom Hooks:</strong> are used to reuse stateful logic
                 easily across different components in an optimized and scalable
                 format. Custom Hooks also produce a clean and structured
@@ -126,10 +124,10 @@ const Blog = () => {
       {/* pdf generator */}
       <div className="text-center">
         <h1 className="text-2xl font-bold mb-5">
-          Our Receipie formula
+        Download this page as a PDF
         </h1>
         <button
-          className="bg-red-500 text-white py-5 px-10 justify-center rounded"
+          className="bg-red-500 text-white py-5 px-10 justify-center rounded mb-12"
           onClick={generatePDF}
         >
           <BsFiletypePdf className="text-4xl ml-8 mb-4" /> Download PDF

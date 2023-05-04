@@ -2,17 +2,16 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContextProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const { createUser,loading } = useContext(AuthContext);
+  const { createUser, loading } = useContext(AuthContext);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
   const hanleRegister = (event) => {
-
-
     if (loading) {
       return (
         <button type="button" className="bg-indigo-500 ...">
@@ -27,20 +26,10 @@ const Register = () => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
-    const name = form.name.value;
+    const displayName = form.name.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
-    const photo = form.photo.value;
-
-
-    // form validation
-    if (password.length < 6) {
-      setError("Password should Be minimum 6 char");
-      return;
-    } else if (password != confirm) {
-      setError("Uff,Password Did't Matched");
-      return;
-    }
+    const photoUrl = form.photoUrl.value;
 
     // optional validation
     //  else if (!/^(?=.*[a-z])/.test(password)) {
@@ -57,23 +46,37 @@ const Register = () => {
     //   return
     // }
 
-    if ((email, password)) {
-      createUser(email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          setSuccess("Thanks, Account Created Sucessfully");
-          form.reset()
+    // form validation
 
+    if (!displayName || !email || !password || !photoUrl) {
+      setError("A user cannot submit empty email and password fields");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password should Be minimum 6 char");
+      return;
+    } else if (password != confirm) {
+      setError("Uff,Password Did't Matched");
+      return;
+    }
+
+    if ((email, password)) {
+      createUser(email, password, displayName, photoUrl)
+        .then(async (result) => {
+          const loggedUser = result.user;
+          await updateProfile(loggedUser, {
+            displayName: displayName,
+            photoURL: photoUrl,
+          });
+          setSuccess("User created successfully");
+          form.reset();
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setError(errorMessage);
+          console.error("Error creating user:", error.message);
+          setError(error.message);
         });
     }
   };
-
-
 
   return (
     <>
@@ -83,17 +86,17 @@ const Register = () => {
         </h2>
         <div className="card card-side bg-base-200 shadow">
           <div className="card-body">
-            {error ? 
+            {error ? (
               <div>
                 <p className="text-red-600 text-center font-bold text-xl">
                   {error}
                 </p>
               </div>
-             : 
+            ) : (
               <p className="text-green-600 text-center font-bold text-xl">
                 {success}
               </p>
-            }
+            )}
 
             <form onSubmit={hanleRegister} className="flex flex-col gap-5">
               <div>
@@ -102,7 +105,7 @@ const Register = () => {
                   type="text"
                   placeholder="Type your name"
                   className="w-full input mt-2"
-                  name="name"
+                  name="displayName"
                 />
               </div>
               <div>
@@ -140,7 +143,7 @@ const Register = () => {
                   type="text"
                   placeholder="Type your photo URL"
                   className="w-full input mt-2"
-                  name="photo"
+                  name="photoUrl"
                 />
               </div>
               <button className="btn border-0 bg-red-500 w-full mt-10">

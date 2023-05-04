@@ -3,25 +3,20 @@
 import React from "react";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
-import  { lazy, Suspense } from 'react';
+import LazyLoad from "react-lazy-load";
 import './SingleChef'
 
 const SingleChef = ({ chef }) => {
   const navigate = useNavigate();
   const { id, picture, name, bio, likes, num_recipes, years_experience } = chef;
-  const LazyImage = lazy(() => import({picture}));
 
   return (
     <div className="card w-full md:w-full bg-base-100 shadow-xl mx-auto md:mx-0">
-      {/* <figure>
-        <img className="w-full" src={picture} alt={name} />
-      </figure> */}
-      {/* <LazyLoad threshold={0.95} offset={300} className="h-full LazyLoad ">
+      
+      <LazyLoad threshold={0.95} offset={300} className="h-full LazyLoad ">
         <img src={picture} />
-      </LazyLoad> */}
-      <Suspense fallback={<div>Loading...</div>}>
-        <img src={picture} />
-      </Suspense>
+      </LazyLoad>
+
       <div className="text-center text-2xl font-bold">
         <h2 className="my-5">{name}</h2>
       </div>

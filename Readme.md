@@ -6,7 +6,7 @@
 * Blog: A page of  website that features regularly updated content such as articles .
 * chef Details page : this the individual page of chef that includes the selected chef data and recepies .
 * Private Route: its doesn't allow unauthorize user to access the chefs detail page  .
-# Website Link  [(https://chefs-mart.web.app/)]
+# Website Link  [website](https://chefs-mart.web.app/)
 
 Check out our [website](https://chefs-mart.web.app/) to learn more about 
 

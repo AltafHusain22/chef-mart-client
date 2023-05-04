@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: '/chefDetails/:id',
         element: <AuthRequired><ChefDetails></ChefDetails></AuthRequired>,
-        loader: ({params})=> fetch(`http://localhost:5000/singleChef/${params.id}`)
+        loader: ({params})=> fetch(`https://chefs-server-altafhusain22.vercel.app/singleChef/${params.id}`)
       },
     ]
   },

@@ -41,10 +41,7 @@ const router = createBrowserRouter([
         path: 'register',
         element:<Register></Register>
       },
-      {
-        path: 'blog',
-        element: <AuthRequired><Blog></Blog></AuthRequired>
-      },
+     
       {
         path: '/chefDetails/:id',
         element: <AuthRequired><ChefDetails></ChefDetails></AuthRequired>,

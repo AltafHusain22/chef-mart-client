@@ -52,6 +52,11 @@ const AuthContextProvider = ({ children }) => {
     signInWithPopup(auth, gitHubProvider);
   };
 
+  // profile update 
+  const profileUpdate =()=>{
+    updateProfile()
+  }
+
   //   observer for user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {

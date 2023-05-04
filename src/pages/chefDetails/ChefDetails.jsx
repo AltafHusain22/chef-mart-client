@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 
 const ChefDetails = () => {
   const singlechefDetails = useLoaderData();
+
   const {
     id,
     picture,

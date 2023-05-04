@@ -32,7 +32,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-gray-200 p-6">
+      <nav className="flex items-center justify-between flex-wrap bg-gray-200 p-6">
       <div className="flex items-center flex-shrink-0 text-slate-700 mr-6">
         <Link to="/">
           <span className="font-semibold text-2xl tracking-tight text-red-700">
@@ -70,15 +70,10 @@ const Navbar = () => {
           </NavLink>
         </div>
 
+        {/* check if user is logged in */}
         {user ? (
-          <div className="flex justify-items-center items-center">
-            <button
-              onClick={handleLogOut}
-              className="inline-block px-6 py-4  leading-none border rounded text-slate-100 font-bold hover:text-gray-900  mt-4 lg:mt-0 mr-4 bg-red-600  "
-            >
-              LogOut
-            </button>
-            <div className="avatar">
+          <div className="flex items-center">
+            <div className="avatar mr-4">
               <div className="w-10 rounded-full ring ring-danger ring-offset-base-100 ring-offset-2">
                 <div>
                   {user.photoURL && (
@@ -92,6 +87,12 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
+            <button
+              onClick={handleLogOut}
+              className="inline-block px-6 py-4  leading-none border rounded text-slate-100 font-bold hover:text-gray-900  mt-4 lg:mt-0 bg-red-600  "
+            >
+              LogOut
+            </button>
           </div>
         ) : (
           <div className="flex items-center">

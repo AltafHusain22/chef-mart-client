@@ -15,6 +15,7 @@ import ChefDetails from './pages/chefDetails/ChefDetails';
 import Register from './pages/register/Register';
 import AuthContextProvider from './Context/AuthContextProvider';
 import ErrorPage from './components/ErrorPage/ErrorPage';
+import AuthRequired from './components/AuthRequired/AuthRequired';
 
 
 
@@ -42,11 +43,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'blog',
-        element: <Blog></Blog>
+        element: <AuthRequired><Blog></Blog></AuthRequired>
       },
       {
         path: '/chefDetails/:id',
-        element: <ChefDetails></ChefDetails>,
+        element: <AuthRequired><ChefDetails></ChefDetails></AuthRequired>,
         loader: ({params})=> fetch(`http://localhost:5000/singleChef/${params.id}`)
       },
     ]

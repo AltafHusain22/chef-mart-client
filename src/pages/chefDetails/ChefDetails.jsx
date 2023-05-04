@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import { GrFavorite } from 'react-icons/gr';
-import Swal from 'sweetalert2'
+import { GrFavorite } from "react-icons/gr";
+import Swal from "sweetalert2";
 
 const ChefDetails = () => {
   const singlechefDetails = useLoaderData();
@@ -25,17 +25,15 @@ const ChefDetails = () => {
     ingredients,
   } = singlechefDetails;
 
+  const [disabledButtons, setDisabledButtons] = useState([false, false, false]);
 
-  const handleAddToFav =()=>{
-    Swal.fire(
-      'Good job!',
-      'Successfully Added to Favourite!',
-      'success'
-    )
-
-    console.log(' cliked')
-  }
-
+  const handleAddToFav = (buttonIndex) => {
+    // Perform the action that adds to favorites
+    const newDisabledButtons = [...disabledButtons]; // Create a copy of the array
+    newDisabledButtons[buttonIndex] = true; // Disable the clicked button
+    setDisabledButtons(newDisabledButtons); // Update the state
+    Swal.fire("Good job!", "Successfully Added to Favourite!", "success");
+  };
 
   return (
     <div>
@@ -100,7 +98,6 @@ const ChefDetails = () => {
           Some of My Thai Recipes
         </h2>
       </div>
-      {}
 
       {/* card -1  */}
       <div className="mb-20 mx-10 md:mx-20 md:mt-20">
@@ -128,8 +125,12 @@ const ChefDetails = () => {
               </ul>
             </p>
             <div className="flex justify-end">
-            <button onClick={handleAddToFav} className="btn btn-success bg-red-300 border-0 w-32">
-                  <GrFavorite className="text-2xl"></GrFavorite>
+              <button
+                onClick={() => handleAddToFav(0)}
+                disabled={disabledButtons[0]}
+                className="btn btn-success bg-red-300 border-0 w-32"
+              >
+                <GrFavorite className="text-2xl" />
               </button>
             </div>
           </div>
@@ -162,8 +163,12 @@ const ChefDetails = () => {
               </ul>
             </p>
             <div className="flex justify-end">
-              <button onClick={handleAddToFav} className="btn btn-success bg-red-300 border-0 w-32">
-                  <GrFavorite className="text-2xl"></GrFavorite>
+              <button
+                onClick={() => handleAddToFav(1)}
+                disabled={disabledButtons[1]}
+                className="btn btn-success bg-red-300 border-0 w-32"
+              >
+                <GrFavorite className="text-2xl" />
               </button>
             </div>
           </div>
@@ -195,8 +200,12 @@ const ChefDetails = () => {
               </ul>
             </p>
             <div className="flex justify-end">
-             <button onClick={handleAddToFav} className="btn btn-success bg-red-300 border-0 w-32">
-                  <GrFavorite className="text-2xl"></GrFavorite>
+              <button
+                onClick={() => handleAddToFav(2)}
+                disabled={disabledButtons[2]}
+                className="btn btn-success bg-red-300 border-0 w-32"
+              >
+                <GrFavorite className="text-2xl" />
               </button>
             </div>
           </div>

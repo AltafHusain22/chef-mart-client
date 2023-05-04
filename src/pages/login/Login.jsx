@@ -1,15 +1,18 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from "react";
-import { FaBeer, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import {  FaGithub, FaGoogle } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContextProvider";
 
 const Login = () => {
   const { logInUser, loading, googleLogin, githubLogin } =
-    useContext(AuthContext);
+  useContext(AuthContext);
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/' ;
+  // console.log(from)
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -34,6 +37,7 @@ const Login = () => {
         const user = userCredential.user;
         setSuccess(" LoggedIn success !");
         form.reset();
+        navigate(from)
       })
       .catch((error) => {
         const errorCode = error.code;

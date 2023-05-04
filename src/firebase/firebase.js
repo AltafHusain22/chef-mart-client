@@ -2,14 +2,16 @@
 import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCp9UFGayKZ3kIwJ-N6i2vORN5TDEv4a2k",
-  authDomain: "chefs-mart.firebaseapp.com",
-  projectId: "chefs-mart",
-  storageBucket: "chefs-mart.appspot.com",
-  messagingSenderId: "1000750777049",
-  appId: "1:1000750777049:web:e075f472167fb1cb2234c8"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -5,7 +5,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase";
 import {
-	GithubAuthProvider,
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -18,7 +18,7 @@ import {
 export const AuthContext = createContext(null);
 const AuthContextProvider = ({ children }) => {
   // state declare for user-set
-  const [user, setuser] = useState("");
+  const [user, setuser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const auth = getAuth(app);
@@ -47,10 +47,10 @@ const AuthContextProvider = ({ children }) => {
   };
 
   // gitHub Login
-  const gitHubProvider = new GithubAuthProvider()
-  const githubLogin =() =>{
-		signInWithPopup(auth,gitHubProvider)
-  }
+  const gitHubProvider = new GithubAuthProvider();
+  const githubLogin = () => {
+    signInWithPopup(auth, gitHubProvider);
+  };
 
   //   observer for user
   useEffect(() => {
@@ -70,7 +70,7 @@ const AuthContextProvider = ({ children }) => {
     loggedOutUser,
     loading,
     googleLogin,
-	githubLogin,
+    githubLogin,
   };
 
   return (

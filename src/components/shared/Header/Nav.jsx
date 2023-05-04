@@ -69,6 +69,7 @@ const Navbar = () => {
             Blog
           </NavLink>
         </div>
+
         {user ? (
           <div className="flex justify-items-center items-center">
             <button

@@ -13,7 +13,7 @@ const Register = () => {
 
     if (loading) {
       return (
-        <button type="button" className="bg-indigo-500 ..." disabled>
+        <button type="button" className="bg-indigo-500 ...">
           <svg
             className="animate-spin h-5 w-5 mr-3 ..."
             viewBox="0 0 24 24"
@@ -60,7 +60,6 @@ const Register = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           setSuccess("Thanks, Account Created Sucessfully");
-          navigate('/login')
           form.reset()
 
         })

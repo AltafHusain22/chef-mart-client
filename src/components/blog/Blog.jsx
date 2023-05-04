@@ -13,7 +13,7 @@ const Blog = () => {
             tabIndex={0}
             className="mx-auto collapse collapse-arrow border border-base-300 bg-base-100 rounded-box sm:w-1/2 lg:w-2/3 my-8"
           >
-            <div className="collapse-title text-xl font-medium bg-red-400">
+            <div className="collapse-title text-xl font-medium bg-red-500">
               1.Tell us the differences between uncontrolled and controlled
               components?
             </div>
@@ -37,19 +37,18 @@ const Blog = () => {
             tabIndex={0}
             className="mx-auto collapse collapse-arrow border border-base-300 bg-base-100 rounded-box sm:w-1/2 lg:w-2/3 my-5"
           >
-            <div className="collapse-title text-xl font-medium bg-red-400">
-              2.What is a custom hook?
+            <div className="collapse-title text-xl font-medium bg-red-500">
+              2.How to validate React props using PropTypes?
             </div>
             <div className="collapse-content text-sm sm:text-base ">
               <p className="py-5">
-                A custom hook is a JavaScript function that uses one or more
-                built-in hooks and can be used to encapsulate and reuse stateful
-                logic in React components. Custom hooks are a way to share
-                functionality among components without repeating code, similar
-                to how regular functions are used to share logic among different
-                parts of an application. They allow developers to extract
-                commonly used logic from components and create reusable and
-                composable hooks.
+                React PropTypes is a type checking library that allows
+                developers to validate the props being passed to a React
+                component. It can help catch bugs early by checking that the
+                props are of the expected type. <br />
+                <br />
+                By using PropTypes to validate our props, we can catch errors
+                and improve the robustness of our React components.
               </p>
             </div>
           </div>
@@ -57,17 +56,28 @@ const Blog = () => {
             tabIndex={0}
             className="mx-auto collapse collapse-arrow border border-base-300 bg-base-100 rounded-box sm:w-1/2 lg:w-2/3 my-5"
           >
-            <div className="collapse-title text-xl font-medium bg-red-400">
-              3.What is useRef?
+            <div className="collapse-title text-xl font-medium bg-red-500">
+              3.Tell us the difference between nodejs and express js.?
             </div>
             <div className="collapse-content text-sm sm:text-base ">
               <p className="py-5">
-                <strong>useRef:</strong> is a hook in React that creates a
-                reference to a mutable value which persists for the entire
-                lifecycle of the component. It is often used to access or modify
-                the properties of a DOM element, to store a value that should
-                persist between renders, or to create a reference to a child
-                component.
+                <strong>Node.js:</strong> is a JavaScript runtime that allows
+                developers to run JavaScript code on the server-side. It uses
+                the V8 JavaScript engine from Google Chrome to execute
+                JavaScript code outside of the browser environment. Node.js
+                provides a rich set of built-in modules for working with file
+                system, networking, and other aspects of server-side
+                development.
+                <br />
+                <br />
+                <strong>Express.js:</strong> is a lightweight and flexible web
+                application framework built on top of Node.js. It provides a set
+                of features and utilities for building web applications and
+                APIs, such as routing, middleware, and HTTP request/response
+                handling. Express.js allows developers to easily create
+                server-side applications and APIs, and it has a wide range of
+                community-contributed middleware and plugins that can extend its
+                functionality.
               </p>
             </div>
           </div>
@@ -75,21 +85,22 @@ const Blog = () => {
             tabIndex={0}
             className="mx-auto collapse collapse-arrow border border-base-300 bg-base-100 rounded-box sm:w-1/2 lg:w-2/3 my-5"
           >
-            <div className="collapse-title text-xl font-medium bg-red-400">
-              4.What is useMemo?
+            <div className="collapse-title text-xl font-medium bg-red-500">
+              4.What is a custom hook, and why will you create a custom hook??
             </div>
             <div className="collapse-content text-sm sm:text-base ">
               <p className="py-5">
-                <strong>useMemo:</strong> is a React hook that is used to
-                memoize the result of a function so that it is only recomputed
-                when its dependencies have changed. It is used to optimize the
-                performance of the application by preventing unnecessary
-                re-renders. When a component renders, all of its functions and
-                variables are re-evaluated, which can be a costly operation. By
-                using useMemo, we can memoize the result of a function so that
-                it is only re-evaluated when its dependencies change. This can
-                be especially useful for expensive computations or when dealing
-                with large data sets.{" "}
+                <strong> Custom Hooks:</strong> are used to reuse stateful logic
+                easily across different components in an optimized and scalable
+                format. Custom Hooks also produce a clean and structured
+                codebase that reduces complexity and redundancy in your React
+                project. <br />
+                <br />
+                Custom hooks can call hooks themselves, such as useEffect and
+                useState. These built-in React hooks can work in custom hooks
+                the same way they work in components. custom hooks can help to
+                write cleaner, more efficient code that is easier to maintain
+                and extend over time.
               </p>
             </div>
           </div>

@@ -8,8 +8,10 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate()
+  const { user } = useContext(AuthContext);
 
   const hanleRegister = (event) => {
+
 
     if (loading) {
       return (
@@ -70,6 +72,8 @@ const Register = () => {
         });
     }
   };
+
+
 
   return (
     <>

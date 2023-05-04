@@ -1,9 +1,25 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { useRef } from "react";
+import { BsFiletypePdf } from "react-icons/Bs";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const Blog = () => {
+  const contentRef = useRef(DataView);
+
+  const generatePDF = () => {
+    html2canvas(contentRef.current).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      pdf.addImage(imgData, "PNG", 0, 0);
+      pdf.save('download.pdf', { encoding: 'UTF-8' });
+    });
+  };
+
   return (
-    <div>
+    <>
       <div>
         <div className="p-12 text-center">
           <h1 className="py-12 text-4xl font-sans font-bold">
@@ -18,7 +34,7 @@ const Blog = () => {
               components?
             </div>
             <div className="collapse-content text-sm sm:text-base ">
-              <p className="py-5">
+              <p ref={contentRef} className="py-5">
                 In React, controlled components are those that are bound to a
                 state value and are modified via user input by updating the
                 state value. They rely on the parent component to manage the
@@ -106,7 +122,21 @@ const Blog = () => {
           </div>
         </div>
       </div>
-    </div>
+      
+      {/* pdf generator */}
+      <div className="text-center">
+        <h1 className="text-2xl font-bold mb-5">
+          Our Receipie formula
+        </h1>
+        <button
+          className="bg-red-500 text-white py-5 px-10 justify-center rounded"
+          onClick={generatePDF}
+        >
+          <BsFiletypePdf className="text-4xl ml-8 mb-4" /> Download PDF
+        </button>
+      </div>
+      {/* end pdf generator */}
+    </>
   );
 };
 

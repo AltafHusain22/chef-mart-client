@@ -48,10 +48,7 @@ const Register = () => {
 
     // form validation
 
-    if (!displayName || !email || !password || !photoUrl) {
-      setError("A user cannot submit empty email and password fields");
-      return;
-    }
+
     if (password.length < 6) {
       setError("Password should Be minimum 6 char");
       return;
